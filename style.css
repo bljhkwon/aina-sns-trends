@@ -64,19 +64,53 @@ body {
 .wiki-link { color: var(--link); font-weight: 500; }
 .section { margin-bottom: 3rem; }
 .section h2 { margin-bottom: 1rem; font-size: 1.3rem; }
-.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
-.card {
-    background: var(--bg-secondary); border: 1px solid var(--border);
-    border-radius: 12px; padding: 1.2rem; transition: transform 0.2s, border-color 0.2s;
+.thread-count { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.3rem; }
+
+/* ===== 게시판 스레드 리스트 ===== */
+.thread-list {
+    list-style: none; padding: 0; margin: 0;
+    border: 1px solid var(--border); border-radius: 12px;
+    overflow: hidden;
 }
-.card:hover { transform: translateY(-2px); border-color: var(--accent); }
-.card-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.85rem; }
-.card-icon { font-size: 1.2rem; }
-.card-date { color: var(--text-secondary); }
-.card h3 { margin-bottom: 0.5rem; }
-.card h3 a { color: var(--text-primary); text-decoration: none; }
-.card h3 a:hover { color: var(--accent); }
-.card-tags { margin-top: 0.5rem; }
+.thread-item {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+}
+.thread-item:last-child { border-bottom: none; }
+.thread-item a {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 1rem 1.2rem; text-decoration: none;
+    color: var(--text-primary);
+    transition: background 0.2s;
+}
+.thread-item a:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+.thread-icon { font-size: 1.3rem; flex-shrink: 0; width: 1.5rem; text-align: center; }
+.thread-date {
+    color: var(--text-secondary); font-size: 0.85rem;
+    flex-shrink: 0; min-width: 90px; font-family: 'SF Mono', 'Fira Code', monospace;
+}
+.thread-title {
+    flex: 1; font-weight: 500; font-size: 1rem;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.thread-title:hover { color: var(--accent); }
+.thread-tags {
+    flex-shrink: 0; display: flex; gap: 0.3rem; flex-wrap: wrap; justify-content: flex-end;
+}
+.thread-tags .tag {
+    font-size: 0.7rem; padding: 0.15rem 0.5rem;
+}
+
+/* ===== 모바일 ===== */
+@media (max-width: 768px) {
+    .sidebar { display: none; }
+    .content { margin-left: 0; padding: 1rem; }
+    .thread-item a { flex-wrap: wrap; gap: 0.4rem; }
+    .thread-date { min-width: auto; }
+    .thread-tags { width: 100%; justify-content: flex-start; margin-top: 0.3rem; }
+}
 .related-links { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); }
 .link-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
 .related-link {
