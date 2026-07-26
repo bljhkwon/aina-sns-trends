@@ -14,12 +14,11 @@ kramdown:
 permalink: pretty
 defaults:
   - scope:
-      path: "_pages"
+      path: "pages"
     values:
       layout: default
 
-# 테마: GitHub Pages 기본 테마 (단순하게)
-theme: minima
+# 커스텀 레이아웃 사용 (minima 제거)
 
 # 제외 파일
 exclude:
@@ -32,6 +31,4 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
-# 포함 파일 (underscore prefix 무시 오버라이드)
-include:
-  - _pages
+# Pages 폴더는 underscore 없이 공개
