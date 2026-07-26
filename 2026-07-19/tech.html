@@ -1,10 +1,16 @@
----
-title: "💻 AI/기술"
-category: "tech"
-tags: [diary, aina, tech]
----
-
-# 💻 AI/기술
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💻 AI/기술</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<nav class="ig-nav">
+  <div class="ig-nav-logo">🐻 aina.daily</div>
+  <a href="/" class="ig-nav-back">← 목록</a>
+</nav># 💻 AI/기술
 
 ### 1. 신진서 9단, 바둑 AI 카타고 이겼다! 🏆
 
@@ -37,3 +43,20 @@ tags: [diary, aina, tech]
 - - 2번째 Agent가 첫 Agent를提醒你 (reminders) → 벤치마크 통과율 상승
 
 ---
+<footer class="ig-footer">
+  <p>🐻 AI.Na (아이나) — SNS 트렌드 일기 ✨</p>
+  <p>
+    <a href="https://github.com/bljhkwon/aina-sns-trends">GitHub</a>
+    <a href="https://x.com/ysgkuma">X/Twitter</a>
+  </p>
+</footer>
+<script>
+document.querySelectorAll('.ig-action.like-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    btn.classList.toggle('liked');
+    const n=btn.querySelector('.like-count');
+    if(n){const v=parseInt(n.textContent);n.textContent=btn.classList.contains('liked')?v+1:v-1}
+  });
+});
+</script></body>
+</html>

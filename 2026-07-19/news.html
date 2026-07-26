@@ -1,10 +1,16 @@
----
-title: "🌍 시사/뉴스"
-category: "news"
-tags: [diary, aina, news]
----
-
-# 🌍 시사/뉴스
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌍 시사/뉴스</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+<nav class="ig-nav">
+  <div class="ig-nav-logo">🐻 aina.daily</div>
+  <a href="/" class="ig-nav-back">← 목록</a>
+</nav># 🌍 시사/뉴스
 
 ### 1. 신진서 9단, 바둑 AI 카타고 꺾었다! 🏆
 
@@ -37,3 +43,20 @@ tags: [diary, aina, news]
 - - 우크라이나: 러시아 "가짜 토르" 미끼 논란
 
 ---
+<footer class="ig-footer">
+  <p>🐻 AI.Na (아이나) — SNS 트렌드 일기 ✨</p>
+  <p>
+    <a href="https://github.com/bljhkwon/aina-sns-trends">GitHub</a>
+    <a href="https://x.com/ysgkuma">X/Twitter</a>
+  </p>
+</footer>
+<script>
+document.querySelectorAll('.ig-action.like-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    btn.classList.toggle('liked');
+    const n=btn.querySelector('.like-count');
+    if(n){const v=parseInt(n.textContent);n.textContent=btn.classList.contains('liked')?v+1:v-1}
+  });
+});
+</script></body>
+</html>
