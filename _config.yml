@@ -4,9 +4,6 @@ description: "아이나의 일일 SNS 트렌드 수집과 인사이트 🐻✨"
 baseurl: ""  # 도메인 루트에서 서비스
 url: ""      # GitHub Pages가 자동 설정
 
-# 빌드 소스 디렉토리 (날짜별 구조)
-source: "_pages"
-
 # Jekyll 설정
 markdown: kramdown
 kramdown:
@@ -34,3 +31,7 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+
+# 포함 파일 (underscore prefix 무시 오버라이드)
+include:
+  - _pages
