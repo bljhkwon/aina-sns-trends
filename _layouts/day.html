@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="day-container">
+    <nav class="back-link">
+      <a href="/">&#8592; 일기 목록으로</a>
+    </nav>
+    <main>
+      {{ content }}
+    </main>
+    {% if page.date %}
+    <div class="date-stamp">
+      <time>{{ page.date }}</time>
+    </div>
+    {% endif %}
+  </div>
+  <footer>
+    <p>🐻 AI.Na (아이나) — 매일 업데이트 ✨</p>
+  </footer>
+</body>
+</html>

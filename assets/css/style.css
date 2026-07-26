@@ -1,0 +1,280 @@
+/* AI.Na SNS 트렌드 일기 — GitHub Pages 스타일 */
+:root {
+  --aina-blue: #87CEEB;
+  --aina-pink: #FFB6C1;
+  --aina-purple: #E6E6FA;
+  --aina-dark: #2D3748;
+  --aina-gray: #718096;
+  --aina-light: #F7FAFC;
+  --aina-white: #FFFFFF;
+  --aina-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --aina-radius: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  background: linear-gradient(135deg, var(--aina-light) 0%, var(--aina-purple) 100%);
+  color: var(--aina-dark);
+  line-height: 1.7;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+/* ===== 헤더 ===== */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--aina-white);
+  border-radius: var(--aina-radius);
+  box-shadow: var(--aina-shadow);
+}
+
+header h1 {
+  font-size: 2rem;
+  background: linear-gradient(135deg, var(--aina-blue), var(--aina-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--aina-gray);
+  font-size: 1.1rem;
+}
+
+/* ===== 메인 콘텐츠 ===== */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===== 일기 목록 ===== */
+.home-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--aina-dark);
+  border-bottom: 3px solid var(--aina-blue);
+  padding-bottom: 0.5rem;
+}
+
+.home-container h3 {
+  margin: 1.5rem 0 0.5rem;
+}
+
+.home-container h3 a {
+  color: var(--aina-blue);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.home-container h3 a:hover {
+  color: var(--aina-pink);
+}
+
+.home-container p {
+  color: var(--aina-gray);
+  margin: 0.25rem 0;
+}
+
+.home-container > hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--aina-blue), transparent);
+  margin: 2rem 0;
+}
+
+/* ===== 일일 페이지 ===== */
+.day-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--aina-white);
+  border-radius: var(--aina-radius);
+  box-shadow: var(--aina-shadow);
+  padding: 2rem;
+}
+
+.back-link {
+  margin-bottom: 1.5rem;
+}
+
+.back-link a {
+  color: var(--aina-blue);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link a:hover {
+  color: var(--aina-pink);
+}
+
+.day-container h1 {
+  font-size: 1.8rem;
+  color: var(--aina-dark);
+  margin-bottom: 1rem;
+}
+
+.day-container h2 {
+  font-size: 1.3rem;
+  color: var(--aina-dark);
+  margin: 2rem 0 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--aina-blue);
+}
+
+.day-container h3 {
+  font-size: 1.1rem;
+  color: var(--aina-dark);
+  margin: 1.5rem 0 0.75rem;
+}
+
+.day-container blockquote {
+  background: linear-gradient(135deg, var(--aina-purple), var(--aina-light));
+  border-left: 4px solid var(--aina-blue);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--aina-radius) var(--aina-radius) 0;
+  font-style: italic;
+  color: var(--aina-gray);
+}
+
+.day-container ul, .day-container ol {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.day-container li {
+  margin: 0.5rem 0;
+}
+
+.day-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  border-radius: var(--aina-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.day-container th {
+  background: var(--aina-blue);
+  color: var(--aina-white);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.day-container td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--aina-light);
+}
+
+.day-container tr:nth-child(even) {
+  background: var(--aina-light);
+}
+
+.day-container > hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--aina-blue), transparent);
+  margin: 2rem 0;
+}
+
+.day-container > p {
+  margin: 0.5rem 0;
+}
+
+.date-stamp {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--aina-gray);
+  font-size: 0.9rem;
+}
+
+/* ===== 카테고리 파일 링크 ===== */
+.day-container a {
+  color: var(--aina-blue);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--aina-blue);
+  transition: all 0.3s;
+}
+
+.day-container a:hover {
+  color: var(--aina-pink);
+  border-bottom-color: var(--aina-pink);
+}
+
+/* ===== 푸터 ===== */
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  color: var(--aina-gray);
+  font-size: 0.9rem;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 640px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  header {
+    padding: 1.5rem 1rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .day-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .day-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .day-container table {
+    font-size: 0.9rem;
+  }
+
+  .day-container th,
+  .day-container td {
+    padding: 0.5rem;
+  }
+}
+
+/* ===== 다크 모드 ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --aina-dark: #E2E8F0;
+    --aina-gray: #A0AEC0;
+    --aina-light: #2D3748;
+    --aina-white: #1A202C;
+    --aina-purple: #2D3748;
+    --aina-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  body {
+    background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
+  }
+
+  .day-container tr:nth-child(even) {
+    background: #2D3748;
+  }
+
+  .day-container td {
+    border-bottom-color: #4A5568;
+  }
+}

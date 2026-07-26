@@ -1,0 +1,14 @@
+# Obsidian
+.obsidian/
+
+# Backups
+*.bak
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Notes (원본 데이터 — GitHub Pages에 노출되지 않음)
+Notes/
+Attachments/
