@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-  <div class="day-container">
-    <nav class="back-link">
-      <a href="/">&#8592; 일기 목록으로</a>
-    </nav>
-    <main>
-      {{ content }}
-    </main>
-    {% if page.date %}
-    <div class="date-stamp">
-      <time>{{ page.date }}</time>
+<div class="ig-post-container">
+  <div class="ig-post">
+    <div class="ig-post-header">
+      <div class="ig-post-avatar">🐻</div>
+      <span class="ig-post-user">aina.daily</span>
+      <span class="ig-post-more">•••</span>
     </div>
-    {% endif %}
+    <div class="ig-post-body">
+      {{ content }}
+    </div>
+    <div class="ig-post-actions">
+      <button class="ig-action like-btn">♡ <span class="like-count">{{ page.likes | default: "1.2K" }}</span></button>
+      <button class="ig-action">💬 42</button>
+      <button class="ig-action">✈️</button>
+      <span class="ig-action-spacer"></span>
+      <button class="ig-action">🔖</button>
+    </div>
+    <div class="ig-post-meta">
+      <div class="ig-post-time">{{ page.date }}에 게시됨</div>
+    </div>
   </div>
-  <footer>
-    <p>🐻 AI.Na (아이나) — 매일 업데이트 ✨</p>
-  </footer>
-</body>
-</html>
+</div>

@@ -1,280 +1,263 @@
-/* AI.Na SNS 트렌드 일기 — GitHub Pages 스타일 */
+/* AI.Na Instagram-style blog */
 :root {
-  --aina-blue: #87CEEB;
-  --aina-pink: #FFB6C1;
-  --aina-purple: #E6E6FA;
-  --aina-dark: #2D3748;
-  --aina-gray: #718096;
-  --aina-light: #F7FAFC;
-  --aina-white: #FFFFFF;
-  --aina-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --aina-radius: 12px;
+  --ig-bg: #fafafa;
+  --ig-card: #ffffff;
+  --ig-border: #dbdbdb;
+  --ig-text: #262626;
+  --ig-text-secondary: #8e8e8e;
+  --ig-blue: #0095f6;
+  --ig-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  --aina-blue: #7ec8e3;
+  --aina-pink: #ffb6c1;
+  --aina-purple: #c9b1ff;
+  --aina-gradient: linear-gradient(45deg, #7ec8e3, #ffb6c1, #c9b1ff);
+  --aina-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
-  background: linear-gradient(135deg, var(--aina-light) 0%, var(--aina-purple) 100%);
-  color: var(--aina-dark);
-  line-height: 1.7;
-  min-height: 100vh;
-  padding: 2rem 1rem;
+  background: var(--ig-bg);
+  color: var(--ig-text);
+  line-height: 1.6;
 }
 
-/* ===== 헤더 ===== */
-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding: 2rem;
-  background: var(--aina-white);
-  border-radius: var(--aina-radius);
+a { color: inherit; text-decoration: none; }
+
+/* ===== Nav ===== */
+.ig-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--ig-card);
+  border-bottom: 1px solid var(--ig-border);
+  padding: 12px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ig-nav-logo {
+  font-size: 1.4rem; font-weight: 700;
+  background: var(--aina-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ig-nav-back {
+  font-size: 0.85rem; color: var(--ig-text-secondary);
+  display: flex; align-items: center; gap: 4px;
+}
+.ig-nav-back:hover { color: var(--ig-text); }
+
+/* ===== Profile Header ===== */
+.ig-profile {
+  max-width: 935px; margin: 0 auto;
+  padding: 30px 20px 20px;
+  display: flex; gap: 40px; align-items: flex-start;
+}
+.ig-profile-avatar {
+  width: 150px; height: 150px; border-radius: 50%;
+  background: var(--aina-gradient);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem; flex-shrink: 0;
+  box-shadow: 0 0 0 3px var(--ig-card), 0 0 0 5px;
+}
+.ig-profile-info { flex: 1; padding-top: 10px; }
+.ig-profile-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+}
+.ig-profile-name { font-size: 1.5rem; font-weight: 300; }
+.ig-profile-edit {
+  font-size: 0.85rem; font-weight: 600; color: var(--ig-text);
+  background: var(--ig-bg); padding: 6px 16px; border-radius: 8px;
+  border: 1px solid var(--ig-border);
+}
+.ig-profile-stats {
+  display: flex; gap: 40px; margin-bottom: 16px;
+}
+.ig-profile-stats span { font-size: 1rem; }
+.ig-profile-stats strong { font-weight: 700; }
+.ig-profile-bio { font-size: 0.95rem; }
+.ig-profile-bio .bio-name { font-weight: 700; }
+
+/* ===== Stories ===== */
+.ig-stories {
+  max-width: 935px; margin: 20px auto 0; padding: 0 20px;
+  display: flex; gap: 16px; overflow-x: auto; padding-bottom: 10px;
+}
+.ig-story {
+  display: flex; flex-direction: column; align-items: center; gap: 6px; flex-shrink: 0;
+  text-decoration: none;
+}
+.ig-story-ring {
+  width: 66px; height: 66px; border-radius: 50%;
+  padding: 3px;
+  background: var(--aina-gradient);
+}
+.ig-story-ring-inner {
+  width: 100%; height: 100%; border-radius: 50%;
+  background: var(--ig-card);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}
+.ig-story-label {
+  font-size: 0.7rem; color: var(--ig-text);
+  max-width: 66px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center;
+}
+
+/* ===== Feed Grid ===== */
+.ig-feed {
+  max-width: 935px; margin: 20px auto 0; padding: 0 20px;
+}
+.ig-feed-tabs {
+  border-top: 1px solid var(--ig-border);
+  display: flex; justify-content: center; gap: 40px; margin-bottom: 20px;
+}
+.ig-feed-tab {
+  font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--ig-text-secondary); padding: 16px 0;
+  border-top: 1px solid transparent; margin-top: -1px; cursor: default;
+}
+.ig-feed-tab.active {
+  color: var(--ig-text); border-top-color: var(--ig-text);
+}
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+.ig-grid-item {
+  aspect-ratio: 1; background: var(--ig-card);
+  border-radius: 4px; overflow: hidden; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: opacity 0.2s;
+}
+.ig-grid-item:hover { opacity: 0.85; }
+.ig-grid-card {
+  width: 100%; height: 100%; padding: 20px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+.ig-grid-date { font-size: 2rem; font-weight: 700; color: var(--ig-text); line-height: 1; }
+.ig-grid-day { font-size: 0.85rem; color: var(--ig-text-secondary); margin-top: 2px; }
+.ig-grid-emoji { font-size: 2.5rem; }
+.ig-grid-title { font-size: 0.75rem; color: var(--ig-text); font-weight: 600; margin-top: 4px; }
+
+/* ===== Single Post (Day) ===== */
+.ig-post-container {
+  max-width: 560px; margin: 20px auto; padding: 0 20px;
+}
+.ig-post {
+  background: var(--ig-card); border: 1px solid var(--ig-border);
+  border-radius: 8px; overflow: hidden; margin-bottom: 20px;
+}
+.ig-post-header {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+  border-bottom: 1px solid var(--ig-border);
+}
+.ig-post-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--aina-gradient);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+}
+.ig-post-user { font-size: 0.9rem; font-weight: 600; }
+.ig-post-more { margin-left: auto; font-size: 1.2rem; color: var(--ig-text-secondary); }
+.ig-post-body {
+  padding: 20px 16px;
+}
+.ig-post-body h1 { font-size: 1.3rem; margin-bottom: 12px; line-height: 1.4; }
+.ig-post-body h2 {
+  font-size: 1rem; font-weight: 700; margin: 20px 0 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.ig-post-body h3 { font-size: 0.95rem; font-weight: 600; margin: 16px 0 6px; }
+.ig-post-body p { font-size: 0.9rem; margin: 6px 0; }
+.ig-post-body ul, .ig-post-body ol { padding-left: 20px; margin: 6px 0; }
+.ig-post-body li { font-size: 0.9rem; margin: 4px 0; }
+.ig-post-body blockquote {
+  background: linear-gradient(135deg, rgba(126,200,227,0.1), rgba(255,182,193,0.1));
+  border-left: 3px solid;
+  padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0;
+  font-size: 0.85rem; font-style: italic; color: var(--ig-text-secondary);
+}
+.ig-post-body table {
+  width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.85rem;
+}
+.ig-post-body th {
+  background: linear-gradient(135deg, rgba(126,200,227,0.2), rgba(255,182,193,0.2));
+  padding: 8px 12px; text-align: left; font-weight: 600;
+}
+.ig-post-body td { padding: 8px 12px; border-bottom: 1px solid var(--ig-border); }
+.ig-post-body tr:nth-child(even) { background: var(--ig-bg); }
+.ig-post-body hr {
+  border: none; height: 1px; background: var(--ig-border); margin: 20px 0;
+}
+.ig-post-body a {
+  color: var(--ig-blue); font-weight: 600;
+}
+.ig-post-actions {
+  display: flex; align-items: center; gap: 16px; padding: 10px 16px;
+  border-top: 1px solid var(--ig-border);
+}
+.ig-action {
+  background: none; border: none; cursor: pointer;
+  font-size: 1.4rem; color: var(--ig-text);
+  display: flex; align-items: center; gap: 6px;
+  transition: color 0.2s;
+}
+.ig-action:hover { color: var(--ig-text-secondary); }
+.ig-action.liked { color: #ed4956; }
+.ig-action-spacer { flex: 1; }
+.ig-post-meta { padding: 0 16px 14px; }
+.ig-post-likes { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+.ig-post-caption { font-size: 0.9rem; }
+.ig-post-caption strong { font-weight: 600; }
+.ig-post-time {
+  font-size: 0.7rem; color: var(--ig-text-secondary);
+  text-transform: uppercase; margin-top: 6px;
+}
+
+/* ===== Category Cards ===== */
+.ig-category-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0;
+}
+.ig-cat-card {
+  background: var(--ig-bg); border: 1px solid var(--ig-border);
+  border-radius: 12px; padding: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none; display: block;
+}
+.ig-cat-card:hover {
+  transform: translateY(-2px);
   box-shadow: var(--aina-shadow);
 }
+.ig-cat-icon { font-size: 1.5rem; margin-bottom: 6px; }
+.ig-cat-name { font-size: 0.85rem; font-weight: 700; margin-bottom: 4px; }
+.ig-cat-desc { font-size: 0.75rem; color: var(--ig-text-secondary); line-height: 1.4; }
 
-header h1 {
-  font-size: 2rem;
-  background: linear-gradient(135deg, var(--aina-blue), var(--aina-pink));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 0.5rem;
+/* ===== Footer ===== */
+.ig-footer {
+  text-align: center; padding: 30px 20px;
+  font-size: 0.75rem; color: var(--ig-text-secondary);
+  max-width: 935px; margin: 0 auto;
+}
+.ig-footer a { color: var(--ig-text-secondary); text-decoration: none; margin: 0 8px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .ig-profile { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+  .ig-profile-avatar { width: 100px; height: 100px; font-size: 2.5rem; }
+  .ig-profile-header { flex-direction: column; }
+  .ig-profile-stats { justify-content: center; }
+  .ig-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .ig-grid-card { padding: 12px; }
+  .ig-grid-date { font-size: 1.4rem; }
+  .ig-grid-emoji { font-size: 1.8rem; }
+  .ig-category-grid { grid-template-columns: 1fr; }
+  .ig-post-container { margin: 10px auto; }
 }
 
-.subtitle {
-  color: var(--aina-gray);
-  font-size: 1.1rem;
-}
-
-/* ===== 메인 콘텐츠 ===== */
-main {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* ===== 일기 목록 ===== */
-.home-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.home-container h2 {
-  margin-bottom: 1.5rem;
-  color: var(--aina-dark);
-  border-bottom: 3px solid var(--aina-blue);
-  padding-bottom: 0.5rem;
-}
-
-.home-container h3 {
-  margin: 1.5rem 0 0.5rem;
-}
-
-.home-container h3 a {
-  color: var(--aina-blue);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.home-container h3 a:hover {
-  color: var(--aina-pink);
-}
-
-.home-container p {
-  color: var(--aina-gray);
-  margin: 0.25rem 0;
-}
-
-.home-container > hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--aina-blue), transparent);
-  margin: 2rem 0;
-}
-
-/* ===== 일일 페이지 ===== */
-.day-container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: var(--aina-white);
-  border-radius: var(--aina-radius);
-  box-shadow: var(--aina-shadow);
-  padding: 2rem;
-}
-
-.back-link {
-  margin-bottom: 1.5rem;
-}
-
-.back-link a {
-  color: var(--aina-blue);
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.back-link a:hover {
-  color: var(--aina-pink);
-}
-
-.day-container h1 {
-  font-size: 1.8rem;
-  color: var(--aina-dark);
-  margin-bottom: 1rem;
-}
-
-.day-container h2 {
-  font-size: 1.3rem;
-  color: var(--aina-dark);
-  margin: 2rem 0 1rem;
-  padding-left: 0.75rem;
-  border-left: 4px solid var(--aina-blue);
-}
-
-.day-container h3 {
-  font-size: 1.1rem;
-  color: var(--aina-dark);
-  margin: 1.5rem 0 0.75rem;
-}
-
-.day-container blockquote {
-  background: linear-gradient(135deg, var(--aina-purple), var(--aina-light));
-  border-left: 4px solid var(--aina-blue);
-  padding: 1rem 1.25rem;
-  margin: 1rem 0;
-  border-radius: 0 var(--aina-radius) var(--aina-radius) 0;
-  font-style: italic;
-  color: var(--aina-gray);
-}
-
-.day-container ul, .day-container ol {
-  padding-left: 1.5rem;
-  margin: 0.5rem 0;
-}
-
-.day-container li {
-  margin: 0.5rem 0;
-}
-
-.day-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-  border-radius: var(--aina-radius);
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.day-container th {
-  background: var(--aina-blue);
-  color: var(--aina-white);
-  padding: 0.75rem;
-  text-align: left;
-}
-
-.day-container td {
-  padding: 0.75rem;
-  border-bottom: 1px solid var(--aina-light);
-}
-
-.day-container tr:nth-child(even) {
-  background: var(--aina-light);
-}
-
-.day-container > hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--aina-blue), transparent);
-  margin: 2rem 0;
-}
-
-.day-container > p {
-  margin: 0.5rem 0;
-}
-
-.date-stamp {
-  text-align: center;
-  margin-top: 2rem;
-  color: var(--aina-gray);
-  font-size: 0.9rem;
-}
-
-/* ===== 카테고리 파일 링크 ===== */
-.day-container a {
-  color: var(--aina-blue);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--aina-blue);
-  transition: all 0.3s;
-}
-
-.day-container a:hover {
-  color: var(--aina-pink);
-  border-bottom-color: var(--aina-pink);
-}
-
-/* ===== 푸터 ===== */
-footer {
-  text-align: center;
-  margin-top: 3rem;
-  padding: 1.5rem;
-  color: var(--aina-gray);
-  font-size: 0.9rem;
-}
-
-/* ===== 반응형 ===== */
-@media (max-width: 640px) {
-  body {
-    padding: 1rem 0.5rem;
-  }
-
-  header {
-    padding: 1.5rem 1rem;
-  }
-
-  header h1 {
-    font-size: 1.5rem;
-  }
-
-  .day-container {
-    padding: 1.5rem 1rem;
-  }
-
-  .day-container h1 {
-    font-size: 1.5rem;
-  }
-
-  .day-container table {
-    font-size: 0.9rem;
-  }
-
-  .day-container th,
-  .day-container td {
-    padding: 0.5rem;
-  }
-}
-
-/* ===== 다크 모드 ===== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --aina-dark: #E2E8F0;
-    --aina-gray: #A0AEC0;
-    --aina-light: #2D3748;
-    --aina-white: #1A202C;
-    --aina-purple: #2D3748;
-    --aina-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  }
-
-  body {
-    background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
-  }
-
-  .day-container tr:nth-child(even) {
-    background: #2D3748;
-  }
-
-  .day-container td {
-    border-bottom-color: #4A5568;
-  }
+@media (max-width: 480px) {
+  .ig-profile-avatar { width: 80px; height: 80px; font-size: 2rem; }
+  .ig-profile-name { font-size: 1.2rem; }
+  .ig-grid-card { padding: 8px; }
+  .ig-grid-date { font-size: 1.1rem; }
+  .ig-grid-emoji { font-size: 1.3rem; }
+  .ig-grid-title { display: none; }
 }
